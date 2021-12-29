@@ -1,17 +1,18 @@
 import logo from "../logo.svg";
+import "../App.css";
 import { FaTwitter, FaGithub } from "react-icons/fa";
 import { BsPersonCircle } from "react-icons/bs";
 import { useEffect, useState } from "react";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isHidden, setHidden] = useState(false);
   const toggle = () => {
-    setIsOpen(!isOpen);
-    console.log(isOpen);
-    return isOpen;
+    setHidden(!isHidden);
+    console.log(isHidden);
+    return isHidden;
   };
   return (
-    <header className="sticky top-0 z-20 bg-slate-900">
+    <header className="sticky top-0 z-20 bg-zinc-900 dark:bg-zinc-900">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-3">
           <div className="flex items-center">
@@ -30,13 +31,24 @@ const Header = () => {
                 <BsPersonCircle className="w-6 h-6" />
                 <span className="ml-2">Profile</span>
               </button>
-              <div className="menu" hidden={toggle}>
-                <div className="absolute mt-2 right-0 invisible">
-                  <ul className="z-10 bg-white shadow-lg rounded-lg">
-                    <li className="py-2">
+              <div className={`menu ${isHidden ? "block" : "hidden"}`}>
+                <div className="absolute mt-2 right-0">
+                  <ul
+                    className="
+                  z-10 bg-white bg-opacity-50
+                  shadow-lg rounded-lg items-center
+                  dark:bg-zinc-800 dark:text-slate-50
+                  "
+                  >
+                    <li className="w-36 pt-2">
                       <a
                         href="https://twitter.com/theZeriax"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200"
+                        className="block px-4 py-2
+                        bg-gray-100 bg-opacity-50
+                        text-sm text-gray-700 hover:bg-gray-200
+                        dark:bg-zinc-800
+                        dark:text-gray-200 dark:hover:bg-zinc-700
+                        "
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -44,10 +56,15 @@ const Header = () => {
                         <span className="ml-2">Twitter</span>
                       </a>
                     </li>
-                    <li className="py-2">
+                    <li className="w-36 pb-2">
                       <a
                         href="https://github.com/theZeriax"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200"
+                        className="block px-4 py-2
+                        bg-gray-100 bg-opacity-50
+                        text-sm text-gray-700 hover:bg-gray-200
+                        dark:bg-zinc-800
+                        dark:text-gray-200 dark:hover:bg-zinc-700
+                        "
                         target="_blank"
                         rel="noopener noreferrer"
                       >
