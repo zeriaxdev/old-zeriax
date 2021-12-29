@@ -1,8 +1,7 @@
-import logo from "../logo.svg";
 import "../App.css";
 import { FaTwitter, FaGithub } from "react-icons/fa";
 import { BsPersonCircle } from "react-icons/bs";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const Header = () => {
   const [isHidden, setHidden] = useState(false);
