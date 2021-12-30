@@ -6,7 +6,7 @@ const fetch = (...args) =>
 const url = `https://api.github.com/users/thezeriax`;
 
 const Fetch = () => {
-  const [data, setData] = useState("");
+  const [data, setData] = useState(false);
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
