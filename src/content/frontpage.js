@@ -1,76 +1,148 @@
+import { useEffect, useState } from "react/cjs/react.development";
+
+const fetch = (...args) =>
+  import("node-fetch").then(({ default: fetch }) => fetch(...args));
+
+const url = `https://api.github.com/users/thezeriax`;
+
+const Fetch = () => {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then(setData);
+  }, []);
+
+  return data ? (
+    <div className="bg-white dark:bg-zinc-800 dark:text-slate-50">
+      <div className="min-w-3xl max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 rounded-2xl bg-zinc-700">
+        <div className="lg:grid lg:grid-cols-3 lg:gap-8">
+          <div className="lg:col-span-1">
+            <div className="px-2 sm:px-0">
+              <h3 className="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10">
+                {data.name}
+              </h3>
+              <p className="mt-3 text-lg leading-6 text-gray-500 dark:text-gray-400">
+                {data.bio}
+              </p>
+              <div className="mt-6 flex items-center">
+                <div className="flex-shrink-0">
+                  <img
+                    className="h-12 w-12 rounded-full"
+                    src={data.avatar_url}
+                    alt={data.name}
+                  />
+                </div>
+                <div className="ml-3">
+                  <div className="text-base leading-6 font-medium text-gray-900 dark:text-gray-100">
+                    {data.login}
+                  </div>
+                  <div className="mt-1 text-sm leading-5 text-gray-500 dark:text-gray-400">
+                    {data.location}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="lg:col-span-1 md:col-span-1">
+            <div className="p-2 sm:px-0">
+              <dl>
+                <dt className="text-sm leading-5 font-medium text-gray-500 dark:text-gray-400 pt-2.5">
+                  Company
+                </dt>
+                <dd className="mt-1 text-sm leading-5 text-gray-900 dark:text-gray-100">
+                  {data.company ? data.company : "No company"}
+                </dd>
+                <dt className="text-sm leading-5 font-medium text-gray-500 dark:text-gray-400 pt-2.5">
+                  Website
+                </dt>
+                <dd className="mt-1 text-sm leading-5 text-gray-900 dark:text-gray-100">
+                  <a
+                    href={`https://` + data.blog}
+                    className="underline text-gray-600 dark:text-gray-400"
+                  >
+                    {data.blog ? data.blog : "No website"}
+                  </a>
+                </dd>
+                <dt className="text-sm leading-5 font-medium text-gray-500 dark:text-gray-400 pt-2.5">
+                  Twitter
+                </dt>
+                <dd className="mt-1 text-sm leading-5 text-gray-900 dark:text-gray-100">
+                  <a
+                    href={`https://twitter.com/` + data.twitter_username}
+                    className="underline text-gray-600 dark:text-gray-400"
+                  >
+                    {data.twitter_username
+                      ? data.twitter_username
+                      : "No twitter"}
+                  </a>
+                </dd>
+                <dt className="text-sm leading-5 font-medium text-gray-500 dark:text-gray-400 pt-2.5">
+                  Github
+                </dt>
+                <dd className="mt-1 text-sm leading-5 text-gray-900 dark:text-gray-100">
+                  <a
+                    href={data.html_url}
+                    className="underline text-gray-600 dark:text-gray-400"
+                  >
+                    {data.html_url}
+                  </a>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div
+            className="
+          lg:col-span-1
+          "
+          >
+            <div className="p-4 sm:px-6">
+              <dl>
+                <dt className="text-sm leading-5 font-medium text-gray-500 dark:text-gray-400">
+                  Followers
+                </dt>
+                <dd className="mt-1 text-sm leading-5 text-gray-900 dark:text-gray-100">
+                  {data.followers}
+                </dd>
+                <dt className="text-sm leading-5 font-medium text-gray-500 dark:text-gray-400">
+                  Following
+                </dt>
+                <dd className="mt-1 text-sm leading-5 text-gray-900 dark:text-gray-100">
+                  {data.following}
+                </dd>
+                <dt className="text-sm leading-5 font-medium text-gray-500 dark:text-gray-400 pt-2.5">
+                  Public Repos
+                </dt>
+                <dd className="mt-1 text-sm leading-5 text-gray-900 dark:text-gray-100">
+                  {data.public_repos}
+                </dd>
+                <dt className="text-sm leading-5 font-medium text-gray-500 dark:text-gray-400 pt-2.5">
+                  Public Gists
+                </dt>
+                <dd className="mt-1 text-sm leading-5 text-gray-900 dark:text-gray-100">
+                  {data.public_gists}
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  ) : (
+    <div>Loading...</div>
+  );
+};
+
 const Frontpage = () => {
   return (
     <div className="flex flex-col justify-center items-center">
-      <div className="frontpage bg-slate-900 dark:bg-zinc-800 dark:text-slate-50">
+      <div className="frontpage bg-white dark:bg-zinc-800 dark:text-slate-50">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center py-3">
             <div className="flex items-center">
-              <p className="h-6">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Malesuada fames ac turpis egestas integer eget. Vitae tempus
-                quam pellentesque nec nam aliquam sem et. Cursus in hac
-                habitasse platea dictumst quisque sagittis purus. In nulla
-                posuere sollicitudin aliquam. Mus mauris vitae ultricies leo
-                integer malesuada nunc vel risus. Arcu non sodales neque
-                sodales. Varius vel pharetra vel turpis nunc eget. Vitae congue
-                mauris rhoncus aenean. Eu tincidunt tortor aliquam nulla
-                facilisi cras fermentum odio eu. Consectetur purus ut faucibus
-                pulvinar elementum integer. Enim facilisis gravida neque
-                convallis a. Risus pretium quam vulputate dignissim suspendisse
-                in est ante in. Quis imperdiet massa tincidunt nunc pulvinar
-                sapien et ligula ullamcorper. Lectus vestibulum mattis
-                ullamcorper velit sed ullamcorper morbi tincidunt ornare.
-                Consequat id porta nibh venenatis cras sed felis eget. Amet
-                aliquam id diam maecenas ultricies mi. Pellentesque nec nam
-                aliquam sem et tortor. Egestas congue quisque egestas diam in
-                arcu cursus. Pellentesque habitant morbi tristique senectus et
-                netus et. Proin libero nunc consequat interdum. Lectus arcu
-                bibendum at varius vel pharetra vel. Feugiat sed lectus
-                vestibulum mattis ullamcorper velit sed ullamcorper morbi. Diam
-                vulputate ut pharetra sit amet. Egestas fringilla phasellus
-                faucibus scelerisque eleifend donec. Augue interdum velit
-                euismod in pellentesque massa placerat duis ultricies. Diam
-                maecenas ultricies mi eget mauris pharetra et ultrices. Nibh
-                tellus molestie nunc non blandit massa. Imperdiet massa
-                tincidunt nunc pulvinar sapien et ligula. Luctus accumsan tortor
-                posuere ac ut consequat semper viverra nam. Nisi vitae suscipit
-                tellus mauris a diam maecenas sed. Sed viverra tellus in hac
-                habitasse platea. Elit duis tristique sollicitudin nibh sit amet
-                commodo. Erat velit scelerisque in dictum non consectetur a. Est
-                sit amet facilisis magna etiam tempor orci eu lobortis. Id donec
-                ultrices tincidunt arcu non sodales. Amet commodo nulla facilisi
-                nullam vehicula ipsum a arcu cursus. Pellentesque id nibh tortor
-                id aliquet lectus. Ultricies mi eget mauris pharetra et ultrices
-                neque ornare aenean. Nunc mattis enim ut tellus elementum
-                sagittis vitae et leo. Egestas egestas fringilla phasellus
-                faucibus scelerisque eleifend donec. Eget egestas purus viverra
-                accumsan in nisl nisi scelerisque eu. Commodo elit at imperdiet
-                dui accumsan sit. Habitant morbi tristique senectus et netus et
-                malesuada fames ac. Amet aliquam id diam maecenas ultricies mi
-                eget. Ac placerat vestibulum lectus mauris ultrices eros in. Id
-                porta nibh venenatis cras sed felis eget. Massa massa ultricies
-                mi quis. Enim tortor at auctor urna nunc id cursus. Tristique
-                senectus et netus et malesuada. Pretium vulputate sapien nec
-                sagittis aliquam malesuada bibendum arcu. Vestibulum mattis
-                ullamcorper velit sed ullamcorper morbi tincidunt ornare. Urna
-                neque viverra justo nec ultrices. Tincidunt tortor aliquam nulla
-                facilisi cras fermentum odio. Consequat semper viverra nam
-                libero justo laoreet. Risus nec feugiat in fermentum posuere
-                urna nec tincidunt. Sagittis vitae et leo duis ut diam quam.
-                Praesent semper feugiat nibh sed pulvinar proin gravida. Viverra
-                vitae congue eu consequat ac felis donec et odio. Sodales ut
-                etiam sit amet nisl. Ultrices in iaculis nunc sed augue lacus.
-                Lectus arcu bibendum at varius vel pharetra vel turpis nunc.
-                Ultrices sagittis orci a scelerisque purus semper eget. Aliquet
-                nec ullamcorper sit amet risus. Nec sagittis aliquam malesuada
-                bibendum arcu vitae elementum. Malesuada proin libero nunc
-                consequat interdum varius sit amet. Hendrerit dolor magna eget
-                est lorem ipsum dolor sit amet. Mauris augue neque gravida in
-                fermentum. Auctor eu augue ut lectus arcu bibendum at varius
-                vel. Cursus turpis massa tincidunt dui ut ornare lectus sit
-                amet. Elementum eu facilisis sed odio morbi.
-              </p>
+              <div className="ml-2">
+                <Fetch />
+              </div>
             </div>
           </div>
         </div>
