@@ -16,11 +16,22 @@ const Fetch = () => {
 
   return data ? (
     <div className="bg-white dark:bg-zinc-800 dark:text-slate-50">
-      <div className="min-w-3xl max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 rounded-2xl bg-zinc-700">
+      <div
+        className="
+      min-w-3xl max-w-5xl mx-auto py-12 px-4 
+      sm:px-6 lg:py-16 lg:px-8 rounded-2xl 
+      bg-gray-100 dark:bg-zinc-900 dark:text-slate-50
+      "
+      >
         <div className="lg:grid lg:grid-cols-3 lg:gap-8">
           <div className="lg:col-span-1">
             <div className="px-2 sm:px-0">
-              <h3 className="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10">
+              <h3
+                className="
+              text-3xl leading-9 font-extrabold tracking-tight text-gray-900 
+              dark:text-gray-100 sm:text-4xl sm:leading-10
+              "
+              >
                 {data.name}
               </h3>
               <p className="mt-3 text-lg leading-6 text-gray-500 dark:text-gray-400">

@@ -73,7 +73,7 @@ const resources = [
     icon: FaTwitter,
   },
   {
-    name: "Dark/Light Mode | It doesn't work yet :(",
+    name: "Dark/Light Mode",
     out: false,
     description:
       "Switch between dark and light mode to customize your experience.",
@@ -122,11 +122,7 @@ export default function Header() {
               <FaInternetExplorer
                 href="https://github.com/theZeriax"
                 className={`
-              h-10 w-auto ${
-                window.localStorage.getItem("theme") === "dark"
-                  ? "text-indigo-600"
-                  : "text-white"
-              }
+              h-10 w-auto text-indigo-600 dark:text-white
               animate-3d-rotate
               `}
               />
@@ -147,10 +143,10 @@ export default function Header() {
           <div className="-mr-2 -my-2 md:hidden">
             <Popover.Button
               className="
-            bg-white rounded-md p-2 inline-flex items-center
+            bg-gray-100 rounded-md p-2 inline-flex items-center
             justify-center text-gray-400 hover:text-gray-500
-            hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500
-            dark:text-gray-200 dark:bg-zinc-800
+            hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500
+            dark:text-gray-200 dark:bg-zinc-900 dark:hover:text-gray-100 dark:hover:bg-zinc-800
             "
             >
               <span className="sr-only">Open menu</span>
@@ -239,16 +235,25 @@ export default function Header() {
                             </a>
                           ))}
                         </div>
-                        <div className="px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8 justify-center">
+                        <div
+                          className="
+                        px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 
+                        sm:space-x-10 sm:px-8 justify-center
+                        dark:bg-zinc-800
+                        "
+                        >
                           {callsToAction.map((item) => (
                             <div key={item.name} className="flow-root">
                               <a
                                 href={item.href}
-                                className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
+                                className="
+                                -m-3 p-3 flex items-center rounded-md text-base font-medium 
+                                text-gray-900 dark:text-gray-200 hover:bg-gray-100
+                                "
                                 onClick={undefined}
                               >
                                 <item.icon
-                                  className="flex-shrink-0 h-6 w-6 text-gray-400"
+                                  className="flex-shrink-0 h-6 w-6 text-gray-400 dark:text-gray-200"
                                   aria-hidden="true"
                                 />
                                 <span className="ml-3">
@@ -314,20 +319,20 @@ export default function Header() {
                   >
                     <Popover.Panel className="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0">
                       <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                        <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                        <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8 dark:bg-zinc-800">
                           {resources.map((item) => (
                             <a
                               key={item.name}
                               onClick={undefined}
                               href={item.href}
-                              className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                              className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-700"
                             >
                               <item.icon
-                                className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                                className="flex-shrink-0 h-6 w-6 text-indigo-600 dark:text-gray-200"
                                 aria-hidden="true"
                               />
                               <div className="ml-4">
-                                <p className="text-base font-medium text-gray-900">
+                                <p className="text-base font-medium text-gray-900 dark:text-gray-200">
                                   {item.name}
                                 </p>
                                 <p className="mt-1 text-sm text-gray-500">
@@ -342,7 +347,11 @@ export default function Header() {
                               `}
                               >
                                 {item.out === true ? (
-                                  <span className="text-gray-700">
+                                  <span
+                                    className="
+                                  text-gray-700 dark:text-gray-200
+                                  "
+                                  >
                                     <ExternalLinkIcon className="h-4" />
                                   </span>
                                 ) : (
@@ -354,7 +363,7 @@ export default function Header() {
                         </div>
                         <div
                           className="
-                        px-5 py-5 bg-gray-50 sm:px-8 sm:py-8 dark:bg-gray-800
+                        px-5 py-5 bg-gray-50 sm:px-8 sm:py-8 dark:bg-zinc-800
                         "
                         >
                           <div>
@@ -370,7 +379,10 @@ export default function Header() {
                                   <a
                                     onClick={undefined}
                                     href={post.href}
-                                    className="font-medium text-gray-900 hover:text-gray-700"
+                                    className="
+                                    font-medium text-gray-900 hover:text-gray-700
+                                    dark:text-gray-200 dark:hover:text-gray-400
+                                    "
                                   >
                                     {post.name}
                                   </a>
@@ -443,29 +455,32 @@ export default function Header() {
           focus
           className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
         >
-          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
+          <div
+            className="
+          rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50
+          dark:bg-zinc-800 dark:divide-gray-700
+          "
+          >
             <div className="pt-5 pb-6 px-5">
               <div className="flex items-center justify-between">
                 <div>
-                  <img
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                    alt="Workflow"
-                  />
+                  <FaInternetExplorer className="h-8 w-8 text-indigo-600 dark:text-gray-100" />
                 </div>
                 <div className="-mr-2">
                   <Popover.Button
                     className="
-                  bg-white rounded-md p-2 inline-flex items-center justify-center 
-                  text-gray-400 hover:text-gray-500 hover:bg-gray-100 
-                  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500
-
-                  dark:text-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700
-                  dark:hover:text-gray-400 dark:focus:ring-2 dark:focus:ring-indigo-500
+                    bg-white rounded-md p-2 inline-flex items-center justify-center 
+                    text-gray-400 hover:text-gray-500 hover:bg-gray-100
+                    focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500
+                    dark:text-zinc-700 dark:bg-zinc-800 dark:hover:bg-zinc-700
+                    dark:hover:text-gray-700 dark:focus:ring-2
                   "
                   >
                     <span className="sr-only">Close menu</span>
-                    <XIcon className="h-6 w-6" aria-hidden="true" />
+                    <XIcon
+                      className="h-6 w-6 text-gray-400 hover:text-gray-500 dark:text-gray-200"
+                      aria-hidden="true"
+                    />
                   </Popover.Button>
                 </div>
               </div>
@@ -476,16 +491,16 @@ export default function Header() {
                       key={item.name}
                       href={item.href}
                       onClick={undefined}
-                      className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+                      className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-200 dark:hover:bg-zinc-700"
                     >
                       <item.icon
-                        className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                        className="flex-shrink-0 h-6 w-6 text-indigo-600 dark:text-gray-200"
                         aria-hidden="true"
                       />
                       <span
                         className="
                       ml-3 text-base font-medium text-gray-900
-                      dark:text-gray-300 dark:hover:text-gray-500
+                      dark:text-gray-200 dark:hover:text-gray-400
                       "
                       >
                         {item.name}
@@ -500,16 +515,16 @@ export default function Header() {
                 <a
                   onClick={undefined}
                   href="https://github.com/theZeriax"
-                  className="text-base font-medium text-gray-900 hover:text-gray-700"
+                  className="text-base font-medium text-gray-900 hover:text-gray-700 dark:text-gray-200 dark:hover:text-gray-400"
                 >
-                  Docs? You mean like doctors and stuff?
+                  Docs?
                 </a>
                 {resources.map((item) => (
                   <a
                     key={item.name}
                     onClick={undefined}
                     href={item.href}
-                    className="text-base font-medium text-gray-900 hover:text-gray-700"
+                    className="text-base font-medium text-gray-900 hover:text-gray-700 dark:text-gray-200 dark:hover:text-gray-400"
                   >
                     {item.name}
                   </a>
@@ -522,7 +537,7 @@ export default function Header() {
                   className="
                   w-full flex items-center justify-center px-4 py-2 border border-transparent 
                   rounded-md bg-indigo-600animate-gradient-xy
-                  shadow-lg shadow-indigo-500/50
+                  shadow-lg shadow-gray-900/50
                   font-medium text-white bg-gradient-to-r from-orange-400 via-pink-500 to-indigo-600
                   animate-gradient-xy hover:bg-indigo-700 text-base hover:from-green-500 hover:to-indigo-700 transition-all
                   "
