@@ -113,9 +113,14 @@ export default function Header() {
         "
         >
           <div className="flex justify-start lg:w-0 lg:flex-1 cursor-progress">
-            <a onClick={undefined} className="cursor-progress">
+            <a
+              onClick={undefined}
+              href="https://github.com/theZeriax"
+              className="cursor-progress"
+            >
               <span className="sr-only">Workflow</span>
               <FaInternetExplorer
+                href="https://github.com/theZeriax"
                 className={`
               h-10 w-auto ${
                 window.localStorage.getItem("theme") === "dark"
@@ -127,6 +132,7 @@ export default function Header() {
               />
             </a>
             <a
+              href="https://github.com/theZeriax"
               onClick={undefined}
               className="
             -ml-px relative block px-3 py-2.5 rounded-md text-base font-medium
@@ -210,7 +216,6 @@ export default function Header() {
                               hover:bg-gray-100
                               dark:hover:bg-zinc-700
                               "
-                              onClick={undefined}
                             >
                               <item.icon
                                 className="flex-shrink-0 h-6 w-6 text-indigo-600 dark:text-slate-200"
@@ -267,6 +272,7 @@ export default function Header() {
               )}
             </Popover>
             <a
+              href="https://github.com/theZeriax"
               className="text-base font-medium text-gray-500 hover:text-gray-900 
               dark:text-gray-200 dark:bg-zinc-900 dark:hover:text-gray-400
               "
@@ -375,6 +381,7 @@ export default function Header() {
                           <div className="mt-5 text-sm">
                             <a
                               onClick={undefined}
+                              href="https://github.com/theZeriax"
                               className="font-medium text-indigo-600 hover:text-indigo-500"
                             >
                               {" "}
@@ -393,6 +400,7 @@ export default function Header() {
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
             <a
               onClick={undefined}
+              href="https://github.com/theZeriax"
               className="
               text-slate-500
               ml-8 whitespace-nowrap inline-flex items-center justify-center
@@ -405,6 +413,7 @@ export default function Header() {
               Click me!
             </a>
             <a
+              href="https://github.com/theZeriax"
               onClick={undefined}
               className="
               ml-8 whitespace-nowrap inline-flex items-center justify-center
@@ -490,6 +499,7 @@ export default function Header() {
               <div className="grid grid-cols-2 gap-y-4 gap-x-8">
                 <a
                   onClick={undefined}
+                  href="https://github.com/theZeriax"
                   className="text-base font-medium text-gray-900 hover:text-gray-700"
                 >
                   Docs? You mean like doctors and stuff?
@@ -508,6 +518,7 @@ export default function Header() {
               <div>
                 <a
                   onClick={undefined}
+                  href="https://github.com/theZeriax"
                   className="
                   w-full flex items-center justify-center px-4 py-2 border border-transparent 
                   rounded-md bg-indigo-600animate-gradient-xy
@@ -522,6 +533,7 @@ export default function Header() {
                   What?{" "}
                   <a
                     onClick={undefined}
+                    href="https://github.com/theZeriax"
                     className="text-indigo-600 hover:text-indigo-500"
                   >
                     I'm some <b>text</b>!
