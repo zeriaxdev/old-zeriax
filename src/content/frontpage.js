@@ -11,7 +11,7 @@ const Fetch = () => {
     fetch(url)
       .then((res) => res.json())
       .then(setData);
-  }, []);
+  }, [data]);
 
   return data ? (
     <div className="bg-white dark:bg-zinc-800 dark:text-slate-50">
