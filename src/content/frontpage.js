@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react/cjs/react.development";
+import { useEffect, useState } from "react";
 
 const fetch = (...args) =>
   import("node-fetch").then(({ default: fetch }) => fetch(...args));
@@ -6,12 +6,13 @@ const fetch = (...args) =>
 const url = `https://api.github.com/users/thezeriax`;
 
 const Fetch = () => {
-  const [data, setData] = useState(false);
+  const [data, setData] = useState(null);
+
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
-      .then(setData);
-  }, [data]);
+      .then((data) => setData(data));
+  }, []);
 
   return data ? (
     <div className="bg-white dark:bg-zinc-800 dark:text-slate-50">
@@ -93,8 +94,8 @@ const Fetch = () => {
           </div>
           <div
             className="
-          lg:col-span-1
-          "
+            lg:col-span-1
+            "
           >
             <div className="p-4 sm:px-6">
               <dl>
