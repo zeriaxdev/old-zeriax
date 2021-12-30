@@ -113,7 +113,7 @@ export default function Header() {
         "
         >
           <div className="flex justify-start lg:w-0 lg:flex-1 cursor-progress">
-            <a href="#" className="cursor-progress">
+            <a onClick={undefined} href="#" className="cursor-progress">
               <span className="sr-only">Workflow</span>
               <FaInternetExplorer
                 href="#"
@@ -129,6 +129,7 @@ export default function Header() {
             </a>
             <a
               href="#"
+              onClick={undefined}
               className="
             -ml-px relative block px-3 py-2.5 rounded-md text-base font-medium
             text-gray-900 dark:text-gray-100
@@ -204,12 +205,14 @@ export default function Header() {
                           {solutions.map((item) => (
                             <a
                               key={item.name}
+                              onClick={undefined}
                               href={item.href}
                               className="
                               -m-3 p-3 flex items-start rounded-lg  
                               hover:bg-gray-100
                               dark:hover:bg-zinc-700
                               "
+                              onClick={undefined}
                             >
                               <item.icon
                                 className="flex-shrink-0 h-6 w-6 text-indigo-600 dark:text-slate-200"
@@ -239,6 +242,7 @@ export default function Header() {
                               <a
                                 href={item.href}
                                 className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
+                                onClick={undefined}
                               >
                                 <item.icon
                                   className="flex-shrink-0 h-6 w-6 text-gray-400"
@@ -269,6 +273,7 @@ export default function Header() {
               className="text-base font-medium text-gray-500 hover:text-gray-900 
               dark:text-gray-200 dark:bg-zinc-900 dark:hover:text-gray-400
               "
+              onClick={undefined}
             >
               Docs
             </a>
@@ -310,6 +315,7 @@ export default function Header() {
                           {resources.map((item) => (
                             <a
                               key={item.name}
+                              onClick={undefined}
                               href={item.href}
                               className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
                             >
@@ -359,6 +365,7 @@ export default function Header() {
                                   className="text-base truncate"
                                 >
                                   <a
+                                    onClick={undefined}
                                     href={post.href}
                                     className="font-medium text-gray-900 hover:text-gray-700"
                                   >
@@ -370,6 +377,7 @@ export default function Header() {
                           </div>
                           <div className="mt-5 text-sm">
                             <a
+                              onClick={undefined}
                               href="#"
                               className="font-medium text-indigo-600 hover:text-indigo-500"
                             >
@@ -388,6 +396,7 @@ export default function Header() {
           </Popover.Group>
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
             <a
+              onClick={undefined}
               href="#"
               className="
               text-slate-500
@@ -402,6 +411,7 @@ export default function Header() {
             </a>
             <a
               href="#"
+              onClick={undefined}
               className="
               ml-8 whitespace-nowrap inline-flex items-center justify-center
               px-4 py-2 border border-transparent rounded-md font-medium
@@ -462,6 +472,7 @@ export default function Header() {
                     <a
                       key={item.name}
                       href={item.href}
+                      onClick={undefined}
                       className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                     >
                       <item.icon
@@ -484,6 +495,7 @@ export default function Header() {
             <div className="py-6 px-5 space-y-6">
               <div className="grid grid-cols-2 gap-y-4 gap-x-8">
                 <a
+                  onClick={undefined}
                   href="#"
                   className="text-base font-medium text-gray-900 hover:text-gray-700"
                 >
@@ -492,6 +504,7 @@ export default function Header() {
                 {resources.map((item) => (
                   <a
                     key={item.name}
+                    onClick={undefined}
                     href={item.href}
                     className="text-base font-medium text-gray-900 hover:text-gray-700"
                   >
@@ -501,6 +514,7 @@ export default function Header() {
               </div>
               <div>
                 <a
+                  onClick={undefined}
                   href="#"
                   className="
                   w-full flex items-center justify-center px-4 py-2 border border-transparent 
@@ -514,7 +528,11 @@ export default function Header() {
                 </a>
                 <p className="mt-6 text-center text-base font-medium text-gray-500">
                   What?{" "}
-                  <a href="#" className="text-indigo-600 hover:text-indigo-500">
+                  <a
+                    onClick={undefined}
+                    href="#"
+                    className="text-indigo-600 hover:text-indigo-500"
+                  >
                     I'm some <b>text</b>!
                   </a>
                 </p>
