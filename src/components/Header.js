@@ -11,8 +11,7 @@ import {
   ShieldCheckIcon,
   ViewGridIcon,
   XIcon,
-  MoonIcon,
-  SunIcon,
+  CashIcon,
 } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import { FaTwitter, FaGithub, FaInternetExplorer } from "react-icons/fa";
@@ -54,8 +53,12 @@ const solutions = [
   },
 ];
 const callsToAction = [
-  { name: "Do something", href: "#", icon: PlayIcon },
-  { name: "Blah Blah", href: "#", icon: PhoneIcon },
+  { name: "Watch a video", href: "/redirect", icon: PlayIcon },
+  {
+    name: "Call 911",
+    href: "tel:911",
+    icon: PhoneIcon,
+  },
 ];
 const resources = [
   {
@@ -73,29 +76,29 @@ const resources = [
     icon: FaTwitter,
   },
   {
-    name: "Dark/Light Mode",
+    name: "Download more RAM!",
     out: false,
-    description:
-      "Switch between dark and light mode to customize your experience.",
-    href: "#",
-    icon: window.localStorage.getItem("theme") === "dark" ? MoonIcon : SunIcon,
-  },
-  {
-    name: "Security",
-    out: false,
-    description: "Understand how we take your privacy seriously.",
-    href: "#",
-    icon: ShieldCheckIcon,
+    description: "Here you can download more RAM! That's awesome!",
+    href: "/redirect",
+    icon: CashIcon,
   },
 ];
 const recentPosts = [
-  { id: 1, name: "Boost your conversion rate", href: "#" },
   {
-    id: 2,
-    name: "How to use search engine optimization to drive traffic to your site",
+    id: 1,
+    name: "Post N1",
     href: "#",
   },
-  { id: 3, name: "Improve your customer experience", href: "#" },
+  {
+    id: 2,
+    name: "Post N2",
+    href: "#",
+  },
+  {
+    id: 3,
+    name: "Post N3",
+    href: "#",
+  },
 ];
 
 function classNames(...classes) {
@@ -248,7 +251,7 @@ export default function Header() {
                                 href={item.href}
                                 className="
                                 -m-3 p-3 flex items-center rounded-md text-base font-medium 
-                                text-gray-900 dark:text-gray-200 hover:bg-gray-100
+                                text-gray-900 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-zinc-700
                                 "
                                 onClick={undefined}
                               >

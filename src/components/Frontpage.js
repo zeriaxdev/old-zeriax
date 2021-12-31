@@ -153,74 +153,74 @@ const FetchUser = () => {
   );
 };
 
-const FetchRepos = () => {
-  const [data, setData] = useState(null);
+// const FetchRepos = () => {
+//   const [data, setData] = useState(null);
 
-  useEffect(() => {
-    fetch(`${url}/repos`)
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  }, []);
+//   useEffect(() => {
+//     fetch(`${url}/repos`)
+//       .then((res) => res.json())
+//       .then((data) => setData(data));
+//   }, []);
 
-  return data ? (
-    <div
-      className="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 rounded-2xl
-      bg-white dark:bg-gray-900
-      "
-    >
-      <div className="flex flex-col">
-        <div className="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-          <div className="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200 dark:border-gray-700">
-            <table className="min-w-full">
-              <thead>
-                <tr>
-                  <th
-                    className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider dark:text-gray-400 dark:bg-gray-900"
-                    colSpan="2"
-                  >
-                    Repositories
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-white">
-                {data.map((repo) => (
-                  <tr key={repo.id}>
-                    <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200 dark:border-gray-700">
-                      <div className="flex items-center">
-                        <div className="flex-shrink-0 h-10 w-10">
-                          <img
-                            className="h-10 w-10 rounded-full"
-                            src={repo.owner.avatar_url}
-                            alt={repo.owner.login}
-                          />
-                        </div>
-                        <div className="ml-4">
-                          <div className="text-sm leading-5 font-medium text-gray-900 dark:text-gray-100">
-                            <a
-                              href={repo.owner.html_url}
-                              className="underline text-gray-600 dark:text-gray-400"
-                            >
-                              {repo.owner.login}
-                            </a>
-                          </div>
-                          <div className="text-sm leading-5 text-gray-500 dark:text-gray-400">
-                            {repo.name}
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  ) : (
-    <div>Loading...</div>
-  );
-};
+//   return data ? (
+//     <div
+//       className="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 rounded-2xl
+//       bg-white dark:bg-gray-900
+//       "
+//     >
+//       <div className="flex flex-col">
+//         <div className="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+//           <div className="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200 dark:border-gray-700">
+//             <table className="min-w-full">
+//               <thead>
+//                 <tr>
+//                   <th
+//                     className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider dark:text-gray-400 dark:bg-gray-900"
+//                     colSpan="2"
+//                   >
+//                     Repositories
+//                   </th>
+//                 </tr>
+//               </thead>
+//               <tbody className="bg-white">
+//                 {data.map((repo) => (
+//                   <tr key={repo.id}>
+//                     <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200 dark:border-gray-700">
+//                       <div className="flex items-center">
+//                         <div className="flex-shrink-0 h-10 w-10">
+//                           <img
+//                             className="h-10 w-10 rounded-full"
+//                             src={repo.owner.avatar_url}
+//                             alt={repo.owner.login}
+//                           />
+//                         </div>
+//                         <div className="ml-4">
+//                           <div className="text-sm leading-5 font-medium text-gray-900 dark:text-gray-100">
+//                             <a
+//                               href={repo.owner.html_url}
+//                               className="underline text-gray-600 dark:text-gray-400"
+//                             >
+//                               {repo.owner.login}
+//                             </a>
+//                           </div>
+//                           <div className="text-sm leading-5 text-gray-500 dark:text-gray-400">
+//                             {repo.name}
+//                           </div>
+//                         </div>
+//                       </div>
+//                     </td>
+//                   </tr>
+//                 ))}
+//               </tbody>
+//             </table>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   ) : (
+//     <div>Loading...</div>
+//   );
+// };
 
 const Frontpage = () => {
   return (
@@ -232,9 +232,9 @@ const Frontpage = () => {
               <div className="m-5">
                 <FetchUser />
               </div>
-              <div className="m-5">
+              {/* <div className="m-5">
                 <FetchRepos />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
