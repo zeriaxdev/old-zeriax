@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .center {
+    width: 100vw;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+}

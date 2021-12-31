@@ -537,7 +537,7 @@ export default function Header() {
                   className="
                   w-full flex items-center justify-center px-4 py-2 border border-transparent 
                   rounded-md bg-indigo-600animate-gradient-xy
-                  shadow-lg shadow-gray-900/50
+                  shadow-lg shadow-gray-400/50 dark:shadow-gray-900/50
                   font-medium text-white bg-gradient-to-r from-orange-400 via-pink-500 to-indigo-600
                   animate-gradient-xy hover:bg-indigo-700 text-base hover:from-green-500 hover:to-indigo-700 transition-all
                   "

@@ -1,17 +1,19 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Header from "./content/header.js";
-import Frontpage from "./content/frontpage";
+import Redirect from "./pages/Redirect";
+import Home from "./pages/Home";
+import PageNotFound from "./pages/PageNotFound";
 
 function App() {
   return (
-    <div className="bg-white dark:bg-zinc-800 min-h-screen">
-      <div className="header text-slate-50 dark:text-slate-50">
-        <Header />
-      </div>
-      <div className="Frontpage">
-        <Frontpage />
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route index element={<Home />} />
+        <Route path="redirect" element={<Redirect />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
