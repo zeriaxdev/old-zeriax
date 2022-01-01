@@ -4,6 +4,7 @@ import Redirect from "./pages/Redirect";
 import Home from "./pages/Home";
 import PageNotFound from "./pages/PageNotFound";
 import PageFound from "./pages/PageFound";
+import Github from "./pages/Github";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route index element={<Home />} />
+        <Route path="github" element={<Github />} />
         <Route path="redirect" element={<Redirect />} />
         <Route path="404" element={<PageFound />} />
         <Route path="*" element={<PageNotFound />} />

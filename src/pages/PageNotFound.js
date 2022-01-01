@@ -1,6 +1,11 @@
+import { useEffect } from "react";
 import { FaCoffee } from "react-icons/fa";
 
 const PageNotFound = () => {
+  useEffect(() => {
+    document.title = "Page not found - 404";
+  });
+
   return (
     <div className="bg-white dark:bg-zinc-800 min-h-screen">
       <div className="PageNotFound">

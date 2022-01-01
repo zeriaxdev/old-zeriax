@@ -1,7 +1,18 @@
+import { useEffect } from "react";
 import { FaBeer } from "react-icons/fa";
-// teacup icon
 
 const PageFound = () => {
+  useEffect(() => {
+    const sound = new Audio(
+      "https://ia903405.us.archive.org/28/items/windows-98-in-24bit-sound-effects/chord%20%2824bit%29.flac"
+    );
+
+    document.title = "Page Found - 404";
+    document.onkeyup = () => {
+      sound.play();
+    };
+  });
+
   return (
     <div className="bg-white dark:bg-zinc-800 min-h-screen">
       <div className="PageNotFound">

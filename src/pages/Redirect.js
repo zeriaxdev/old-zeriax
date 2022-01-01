@@ -3,7 +3,10 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 export default function Redirect() {
   useEffect(() => {
-    window.location.href = `https://youtube.com/watch?v=dQw4w9WgXcQ`;
+    document.title = "Redirecting...";
+    setTimeout(() => {
+      window.location.href = `https://youtube.com/watch?v=dQw4w9WgXcQ`;
+    }, 1500);
   }, []);
 
   return (

@@ -1,226 +1,5 @@
-import { useEffect, useState } from "react";
-
-const fetch = (...args) =>
-  import("node-fetch").then(({ default: fetch }) => fetch(...args));
-
-const url = `https://api.github.com/users/theZeriax`;
-
-const FetchUser = () => {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  }, []);
-
-  return data ? (
-    <div className="bg-white dark:bg-zinc-800 dark:text-slate-50">
-      <div
-        className="
-      min-w-3xl max-w-5xl mx-auto py-12 px-4 
-      sm:px-6 lg:py-16 lg:px-8 rounded-2xl 
-      bg-gray-100 dark:bg-zinc-900 dark:text-slate-50
-      "
-      >
-        <div className="lg:grid lg:grid-cols-3 lg:gap-8">
-          <div className="lg:col-span-1">
-            <div className="px-2 sm:px-0">
-              <h3
-                className="
-              text-3xl leading-9 font-extrabold tracking-tight text-gray-900 
-              dark:text-gray-100 sm:text-4xl sm:leading-10
-              "
-              >
-                {data.name}
-              </h3>
-              <p className="mt-3 text-lg leading-6 text-gray-500 dark:text-gray-400">
-                {data.bio}
-              </p>
-              <div className="mt-6 flex items-center">
-                <div className="flex-shrink-0">
-                  <img
-                    className="h-12 w-12 rounded-full"
-                    src={data.avatar_url}
-                    alt={data.name}
-                  />
-                </div>
-                <div className="ml-3">
-                  <div className="text-base leading-6 font-medium text-gray-900 dark:text-gray-100">
-                    {data.login}
-                  </div>
-                  <div className="mt-1 text-sm leading-5 text-gray-500 dark:text-gray-400">
-                    {data.location}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="lg:col-span-1 md:col-span-1">
-            <div className="p-2 sm:px-0">
-              <dl>
-                <dt className="text-sm leading-5 font-medium text-gray-500 dark:text-gray-400 pt-2.5">
-                  Company
-                </dt>
-                <dd className="mt-1 text-sm leading-5 text-gray-900 dark:text-gray-100">
-                  {data.company ? data.company : "No company"}
-                </dd>
-                <dt className="text-sm leading-5 font-medium text-gray-500 dark:text-gray-400 pt-2.5">
-                  Website
-                </dt>
-                <dd className="mt-1 text-sm leading-5 text-gray-900 dark:text-gray-100">
-                  {data.blog ? (
-                    <a
-                      href={`https://` + data.blog}
-                      className="underline text-gray-600 dark:text-gray-400"
-                    >
-                      {data.blog ? data.blog : "No twitter"}
-                    </a>
-                  ) : (
-                    "No website"
-                  )}
-                </dd>
-                <dt className="text-sm leading-5 font-medium text-gray-500 dark:text-gray-400 pt-2.5">
-                  Twitter
-                </dt>
-                <dd className="mt-1 text-sm leading-5 text-gray-900 dark:text-gray-100">
-                  {data.twitter_username ? (
-                    <a
-                      href={`https://twitter.com/` + data.twitter_username}
-                      className="underline text-gray-600 dark:text-gray-400"
-                    >
-                      {data.twitter_username
-                        ? data.twitter_username
-                        : "No twitter"}
-                    </a>
-                  ) : (
-                    "No twitter"
-                  )}
-                </dd>
-                <dt className="text-sm leading-5 font-medium text-gray-500 dark:text-gray-400 pt-2.5">
-                  Github
-                </dt>
-                <dd className="mt-1 text-sm leading-5 text-gray-900 dark:text-gray-100">
-                  <a
-                    href={data.html_url}
-                    className="underline text-gray-600 dark:text-gray-400"
-                  >
-                    {data.html_url}
-                  </a>
-                </dd>
-              </dl>
-            </div>
-          </div>
-          <div
-            className="
-            lg:col-span-1
-            "
-          >
-            <div className="p-2 sm:px-0">
-              <dl>
-                <dt className="text-sm leading-5 font-medium text-gray-500 dark:text-gray-400">
-                  Followers
-                </dt>
-                <dd className="mt-1 text-sm leading-5 text-gray-900 dark:text-gray-100">
-                  {data.followers}
-                </dd>
-                <dt className="text-sm leading-5 font-medium text-gray-500 dark:text-gray-400">
-                  Following
-                </dt>
-                <dd className="mt-1 text-sm leading-5 text-gray-900 dark:text-gray-100">
-                  {data.following}
-                </dd>
-                <dt className="text-sm leading-5 font-medium text-gray-500 dark:text-gray-400 pt-2.5">
-                  Public Repos
-                </dt>
-                <dd className="mt-1 text-sm leading-5 text-gray-900 dark:text-gray-100">
-                  {data.public_repos}
-                </dd>
-                <dt className="text-sm leading-5 font-medium text-gray-500 dark:text-gray-400 pt-2.5">
-                  Public Gists
-                </dt>
-                <dd className="mt-1 text-sm leading-5 text-gray-900 dark:text-gray-100">
-                  {data.public_gists}
-                </dd>
-              </dl>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  ) : (
-    <div>Loading...</div>
-  );
-};
-
-// const FetchRepos = () => {
-//   const [data, setData] = useState(null);
-
-//   useEffect(() => {
-//     fetch(`${url}/repos`)
-//       .then((res) => res.json())
-//       .then((data) => setData(data));
-//   }, []);
-
-//   return data ? (
-//     <div
-//       className="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 rounded-2xl
-//       bg-white dark:bg-gray-900
-//       "
-//     >
-//       <div className="flex flex-col">
-//         <div className="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-//           <div className="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200 dark:border-gray-700">
-//             <table className="min-w-full">
-//               <thead>
-//                 <tr>
-//                   <th
-//                     className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider dark:text-gray-400 dark:bg-gray-900"
-//                     colSpan="2"
-//                   >
-//                     Repositories
-//                   </th>
-//                 </tr>
-//               </thead>
-//               <tbody className="bg-white">
-//                 {data.map((repo) => (
-//                   <tr key={repo.id}>
-//                     <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200 dark:border-gray-700">
-//                       <div className="flex items-center">
-//                         <div className="flex-shrink-0 h-10 w-10">
-//                           <img
-//                             className="h-10 w-10 rounded-full"
-//                             src={repo.owner.avatar_url}
-//                             alt={repo.owner.login}
-//                           />
-//                         </div>
-//                         <div className="ml-4">
-//                           <div className="text-sm leading-5 font-medium text-gray-900 dark:text-gray-100">
-//                             <a
-//                               href={repo.owner.html_url}
-//                               className="underline text-gray-600 dark:text-gray-400"
-//                             >
-//                               {repo.owner.login}
-//                             </a>
-//                           </div>
-//                           <div className="text-sm leading-5 text-gray-500 dark:text-gray-400">
-//                             {repo.name}
-//                           </div>
-//                         </div>
-//                       </div>
-//                     </td>
-//                   </tr>
-//                 ))}
-//               </tbody>
-//             </table>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   ) : (
-//     <div>Loading...</div>
-//   );
-// };
+import "../App.css";
+import { LinkIcon } from "@heroicons/react/outline";
 
 const Frontpage = () => {
   return (
@@ -230,11 +9,58 @@ const Frontpage = () => {
           <div className="flex justify-between items-center py-3">
             <div className="flex items-center flex-col md:flex-row ">
               <div className="m-5">
-                <FetchUser />
+                <div>
+                  <h1 id="about-me" className="hover:underline">
+                    <LinkIcon className="h-8 text-zinc-700 dark:text-zinc-500 inline-flex mr-1" />
+                    About me
+                  </h1>
+                  <p>
+                    Hello there! 👋 I'm zeriax, a young developer from Helsinki,
+                    Finland. I like imagining things and try my best to improve
+                    my skills.
+                  </p>
+                  <br />
+                  <p>
+                    I really enjoy programming at my free time! I started my
+                    (kind of) full-time journey in July 2021, though I already
+                    knew some HTML back in 2017.
+                  </p>
+                  <h2 id="what-is-this" className="hover:underline">
+                    <LinkIcon className="h-8 text-zinc-700 dark:text-zinc-500 inline-flex mr-1" />
+                    What is this?
+                  </h2>
+                  <p>
+                    This website to show off my skills and projects that I have
+                    done, hope you like it!
+                  </p>
+                  <h2 id="projects" className="hover:underline">
+                    <LinkIcon className="h-8 text-zinc-700 dark:text-zinc-500 inline-flex mr-1" />
+                    Projects
+                  </h2>
+                  <p>
+                    Currently I&#39;m working on projects like{" "}
+                    <a
+                      href="https://github.com/libremayk"
+                      className="url dark:urldark"
+                    >
+                      libreMayk
+                    </a>{" "}
+                    and{" "}
+                    <a
+                      href="https://github.com/theZeriax/UntitledChat/"
+                      className="url dark:urldark"
+                    >
+                      UntitledChat
+                    </a>
+                    . More information about them you can find at{" "}
+                    <code className="p-1 dark:bg-zinc-700 rounded-lg">
+                      <a href="/github" className="url dark:urldark">
+                        ./github/
+                      </a>
+                    </code>
+                  </p>
+                </div>
               </div>
-              {/* <div className="m-5">
-                <FetchRepos />
-              </div> */}
             </div>
           </div>
         </div>
