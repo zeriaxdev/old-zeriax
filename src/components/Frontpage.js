@@ -1,6 +1,5 @@
 import "../App.css";
 import { LinkIcon } from "@heroicons/react/outline";
-import { useEffect } from "react";
 
 const Frontpage = () => {
   return (
