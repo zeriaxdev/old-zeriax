@@ -1,5 +1,6 @@
 import "../App.css";
 import { LinkIcon } from "@heroicons/react/outline";
+import { useEffect } from "react";
 
 const Frontpage = () => {
   return (
@@ -11,7 +12,7 @@ const Frontpage = () => {
               <div className="m-5">
                 <div>
                   <h1 id="about-me" className="hover:underline">
-                    <LinkIcon className="h-8 text-zinc-700 dark:text-zinc-500 inline-flex mr-1" />
+                    <LinkIcon className="h-7 text-zinc-700 dark:text-zinc-500 inline-flex mr-1 align-baseline" />
                     About me
                   </h1>
                   <p>
@@ -25,16 +26,16 @@ const Frontpage = () => {
                     (kind of) full-time journey in July 2021, though I already
                     knew some HTML back in 2017.
                   </p>
-                  <h2 id="what-is-this" className="hover:underline">
-                    <LinkIcon className="h-8 text-zinc-700 dark:text-zinc-500 inline-flex mr-1" />
+                  <h2 id="what-is-this" className="hover:underline mt-7">
+                    <LinkIcon className="h-7 text-zinc-700 dark:text-zinc-500 inline-flex mr-1 align-text-top" />
                     What is this?
                   </h2>
                   <p>
                     This website to show off my skills and projects that I have
                     done, hope you like it!
                   </p>
-                  <h2 id="projects" className="hover:underline">
-                    <LinkIcon className="h-8 text-zinc-700 dark:text-zinc-500 inline-flex mr-1" />
+                  <h2 id="projects" className="hover:underline mt-7">
+                    <LinkIcon className="h-7 text-zinc-700 dark:text-zinc-500 inline-flex mr-1 align-text-top" />
                     Projects
                   </h2>
                   <p>
@@ -58,6 +59,17 @@ const Frontpage = () => {
                         ./github/
                       </a>
                     </code>
+                  </p>
+                  <h2
+                    id="projects"
+                    className="hover:underline mt-7"
+                    href="/github"
+                  >
+                    <LinkIcon className="h-7 text-zinc-700 dark:text-zinc-500 inline-flex mr-1 align-text-top" />
+                    Fun facts
+                  </h2>
+                  <p>
+                    People say my nickname sounds like a disease, doesn't it?
                   </p>
                 </div>
               </div>
