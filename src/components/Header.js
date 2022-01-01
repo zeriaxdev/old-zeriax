@@ -125,7 +125,7 @@ export default function Header() {
                 setName("i use manjaro btw");
                 setSiteIcon(
                   <SiManjaro
-                    className={`h-10 w-auto text-indigo-600 dark:text-white animate-3d-rotate`}
+                    className={`h-10 w-auto text-green-600 dark:text-white animate-3d-rotate`}
                   />
                 );
               }}
