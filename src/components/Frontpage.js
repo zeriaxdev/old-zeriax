@@ -53,9 +53,9 @@ const Frontpage = () => {
                       UntitledChat
                     </a>
                     . More information about them you can find at{" "}
-                    <code className="p-1 dark:bg-zinc-700 rounded-lg">
+                    <code className="p-1 bg-zinc-200 dark:bg-zinc-700 rounded-lg">
                       <a href="/github" className="url dark:urldark">
-                        ./github/
+                        ./github
                       </a>
                     </code>
                   </p>

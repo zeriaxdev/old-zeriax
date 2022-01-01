@@ -1,20 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #000;
+  background-color: #fff;
+}
+
+code {
+  font-family: monospace;
+}
+
+h1 {
+  font-size: 3vh;
+  font-weight: 600;
+  margin-top: 1.5vh;
+}
+
+h2 {
+  font-size: 2.5vh;
+  font-weight: 600;
+  margin-top: 1vh;
+}
+
 @layer components {
-  h1 {
-    font-size: 3vh;
-    font-weight: 600;
-    margin-top: 1.5vh;
-  }
-
-  h2 {
-    font-size: 2.5vh;
-    font-weight: 600;
-    margin-top: 1vh;
-  }
-
   .url {
     font-weight: 600;
   }

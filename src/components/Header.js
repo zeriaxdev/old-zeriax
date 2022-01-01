@@ -1,57 +1,51 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import {
-  ChartBarIcon,
-  CursorClickIcon,
   ExternalLinkIcon,
   MenuIcon,
   PhoneIcon,
   PlayIcon,
-  RefreshIcon,
-  ShieldCheckIcon,
-  ViewGridIcon,
   XIcon,
   CashIcon,
+  LinkIcon,
 } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
-import { FaTwitter, FaGithub, FaInternetExplorer } from "react-icons/fa";
+import {
+  FaTwitter,
+  FaGithub,
+  FaRegQuestionCircle,
+  FaInternetExplorer,
+} from "react-icons/fa";
+import { SiManjaro } from "react-icons/si";
 
 import { GoLinkExternal } from "react-icons/go";
 
+const alphabet = "qwertyuiopasdfghjklzxcvbnm";
+const random = Array.from(Array(8).keys())
+  .map(() => alphabet[Math.floor(Math.random() * alphabet.length)])
+  .join("");
+
 const solutions = [
   {
-    name: "Analytics",
-    description:
-      "Get a better understanding of where your traffic is coming from.",
-    href: "#",
-    icon: ChartBarIcon,
+    name: "./github",
+    description: "GitHub page with all the statistics needed.",
+    href: "/github",
+    icon: FaGithub,
   },
   {
-    name: "Engagement",
-    description: "Speak directly to your customers in a more meaningful way.",
-    href: "#",
-    icon: CursorClickIcon,
+    name: "./redirect",
+    description: "A redirect to something SPECIAL.",
+    href: "/redirect",
+    icon: LinkIcon,
   },
   {
-    name: "Security",
-    description: "Your customers' data will be safe and secure.",
-    href: "#",
-    icon: ShieldCheckIcon,
-  },
-  {
-    name: "Integrations",
-    description: "Connect with third-party tools that you're already using.",
-    href: "#",
-    icon: ViewGridIcon,
-  },
-  {
-    name: "Automations",
-    description:
-      "Build strategic funnels that will drive your customers to convert",
-    href: "#",
-    icon: RefreshIcon,
+    name: `./${random}`,
+    description: "Just a random page. Will return 404.",
+    href: `./${random}`,
+    icon: FaRegQuestionCircle,
   },
 ];
+
 const callsToAction = [
   { name: "Watch a video", href: "/redirect", icon: PlayIcon },
   {
@@ -83,6 +77,7 @@ const resources = [
     icon: CashIcon,
   },
 ];
+
 const recentPosts = [
   {
     id: 1,
@@ -106,6 +101,14 @@ function classNames(...classes) {
 }
 
 export default function Header() {
+  const [name, setName] = useState("zeriax");
+  const [siteIcon, setSiteIcon] = useState(
+    <FaInternetExplorer
+      href="https://github.com/theZeriax"
+      className={`h-10 w-auto text-indigo-600 dark:text-white animate-3d-rotate`}
+    />
+  );
+
   return (
     <Popover className="relative bg-zinc-100 dark:bg-zinc-900 shadow-zinc-300/75 dark:shadow-zinc-900/50 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -116,23 +119,28 @@ export default function Header() {
         "
         >
           <div className="flex justify-start lg:w-0 lg:flex-1 cursor-progress">
-            <a
-              onClick={undefined}
-              href="https://github.com/theZeriax"
+            <p
               className="cursor-progress"
+              onMouseOver={() => {
+                setName("i use manjaro btw");
+                setSiteIcon(
+                  <SiManjaro
+                    className={`h-10 w-auto text-indigo-600 dark:text-white animate-3d-rotate`}
+                  />
+                );
+              }}
+              onMouseLeave={() => {
+                setName("zeriax");
+                setSiteIcon(
+                  <FaInternetExplorer
+                    className={`h-10 w-auto text-indigo-600 dark:text-white animate-3d-rotate`}
+                  />
+                );
+              }}
             >
-              <span className="sr-only">Workflow</span>
-              <FaInternetExplorer
-                href="https://github.com/theZeriax"
-                className={`
-              h-10 w-auto text-indigo-600 dark:text-white
-              animate-3d-rotate
-              `}
-              />
-            </a>
-            <a
-              href="https://github.com/theZeriax"
-              onClick={undefined}
+              {siteIcon}
+            </p>
+            <p
               className="
             -ml-px relative block px-3 py-2.5 rounded-md text-base font-medium
             text-gray-900 dark:text-gray-100
@@ -140,8 +148,8 @@ export default function Header() {
             focus:outline-none focus:text-gray-900 dark:focus:text-gray-100
             "
             >
-              theZeriax
-            </a>
+              {name}
+            </p>
           </div>
           <div className="-mr-2 -my-2 md:hidden">
             <Popover.Button
@@ -169,7 +177,7 @@ export default function Header() {
                       `
                     )}
                   >
-                    <span>What?</span>
+                    <span>Pages</span>
                     <ChevronDownIcon
                       className={classNames(
                         open ? "text-gray-600" : "text-gray-400",
@@ -467,7 +475,7 @@ export default function Header() {
             <div className="pt-5 pb-6 px-5">
               <div className="flex items-center justify-between">
                 <div>
-                  <FaInternetExplorer className="h-8 w-8 text-indigo-600 dark:text-gray-100" />
+                  <SiManjaro className="h-8 w-8 text-indigo-600 dark:text-gray-100" />
                 </div>
                 <div className="-mr-2">
                   <Popover.Button
@@ -548,7 +556,7 @@ export default function Header() {
                   Click me, yes!
                 </a>
                 <p className="mt-6 text-center text-base font-medium text-gray-500">
-                  What?{" "}
+                  Pages
                   <a
                     onClick={undefined}
                     href="https://github.com/theZeriax"
