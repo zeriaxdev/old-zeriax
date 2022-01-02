@@ -3,11 +3,12 @@ import { Popover, Transition } from "@headlessui/react";
 import {
   ExternalLinkIcon,
   MenuIcon,
-  PhoneIcon,
   PlayIcon,
   XIcon,
   CashIcon,
   LinkIcon,
+  HomeIcon,
+  MailIcon,
 } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import {
@@ -15,6 +16,8 @@ import {
   FaGithub,
   FaRegQuestionCircle,
   FaInternetExplorer,
+  FaDev,
+  FaMedium,
 } from "react-icons/fa";
 import { SiManjaro } from "react-icons/si";
 
@@ -49,9 +52,9 @@ const solutions = [
 const callsToAction = [
   { name: "Watch a video", href: "/redirect", icon: PlayIcon },
   {
-    name: "Call 911",
-    href: "tel:911",
-    icon: PhoneIcon,
+    name: "Email me",
+    href: "mailto://theZeriax@protonmail.com",
+    icon: MailIcon,
   },
 ];
 const resources = [
@@ -70,6 +73,20 @@ const resources = [
     icon: FaTwitter,
   },
   {
+    name: "dev.to",
+    out: true,
+    description: "Check out my blog on dev.to! There is none.",
+    href: "https://dev.to/theZeriax",
+    icon: FaDev,
+  },
+  {
+    name: "Medium",
+    out: true,
+    description: "Read my articles on Medium! I haven't published any yet.",
+    href: "https://medium.com/@zeriax",
+    icon: FaMedium,
+  },
+  {
     name: "Download more RAM!",
     out: false,
     description: "Here you can download more RAM! That's awesome!",
@@ -79,20 +96,21 @@ const resources = [
 ];
 
 const recentPosts = [
+  // There are none! Instead, you can have GitHub repositories.
   {
     id: 1,
-    name: "Post N1",
-    href: "#",
+    name: "maykBot",
+    href: "https://github.com/libreMayk/maykBot",
   },
   {
     id: 2,
-    name: "Post N2",
-    href: "#",
+    name: "UntitledChat",
+    href: "https://github.com/theZeriax/UntitledChat",
   },
   {
     id: 3,
-    name: "Post N3",
-    href: "#",
+    name: "This Website",
+    href: "https://github.com/theZeriax/theZeriax.github.io",
   },
 ];
 
@@ -125,7 +143,7 @@ export default function Header() {
                 setName("i use manjaro btw");
                 setSiteIcon(
                   <SiManjaro
-                    className={`h-10 w-auto text-green-600 dark:text-white animate-3d-rotate`}
+                    className={`h-10 w-auto text-green-600 dark:text-white animate-3d-rotate-xy`}
                   />
                 );
               }}
@@ -287,15 +305,6 @@ export default function Header() {
                 </>
               )}
             </Popover>
-            <a
-              href="https://github.com/theZeriax"
-              className="text-base font-medium text-gray-500 hover:text-gray-900 
-              dark:text-gray-200 dark:bg-zinc-900 dark:hover:text-gray-400
-              "
-              onClick={undefined}
-            >
-              Docs
-            </a>
 
             <Popover className="relative">
               {({ open }) => (
@@ -379,7 +388,7 @@ export default function Header() {
                         >
                           <div>
                             <h3 className="text-sm tracking-wide font-medium text-gray-500 uppercase">
-                              Recent Posts
+                              Repositories
                             </h3>
                             <ul className="mt-4 space-y-4">
                               {recentPosts.map((post) => (
@@ -388,7 +397,6 @@ export default function Header() {
                                   className="text-base truncate"
                                 >
                                   <a
-                                    onClick={undefined}
                                     href={post.href}
                                     className="
                                     font-medium text-gray-900 hover:text-gray-700
@@ -403,12 +411,10 @@ export default function Header() {
                           </div>
                           <div className="mt-5 text-sm">
                             <a
-                              onClick={undefined}
                               href="https://github.com/theZeriax"
                               className="font-medium text-indigo-600 hover:text-indigo-500"
                             >
-                              {" "}
-                              View all posts{" "}
+                              View all repos{" "}
                               <span aria-hidden="true">&rarr;</span>
                             </a>
                           </div>
@@ -422,32 +428,24 @@ export default function Header() {
           </Popover.Group>
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
             <a
-              onClick={undefined}
-              href="https://github.com/theZeriax"
-              className="
-              text-slate-500
-              ml-8 whitespace-nowrap inline-flex items-center justify-center
-              px-4 py-2 border border-transparent rounded-md shadow-lg shadow-slate-400/50
-              font-medium bg-slate-200 transition duration-200 hover:bg-slate-300 hover:text-slate-600 text-base
-              hover:shadow-slate-400 dark:hover:bg-slate-100 dark:hover:text-slate-500
-              dark:hover:shadow-slate-500/50
-              "
-            >
-              Click me!
-            </a>
-            <a
-              href="https://github.com/theZeriax"
-              onClick={undefined}
-              className="
-              ml-8 whitespace-nowrap inline-flex items-center justify-center
+              href={window.location.pathname === "/" ? "#home-sweet-home" : "/"}
+              className={`ml-8 whitespace-nowrap inline-flex items-center justify-center
               px-4 py-2 border border-transparent rounded-md font-medium
-              shadow-lg drop-shadow-lg text-white bg-gradient-to-r
-              from-orange-400 via-pink-500 to-indigo-600 transition duration-200
-              animate-gradient-xy hover:bg-indigo-700 text-base 
-              hover:from-green-500 hover:to-indigo-700
-              "
+              shadow-lg drop-shadow-lg text-gray-700 dark:text-white
+              bg-gray-100 dark:bg-zinc-800 ${
+                window.location.pathname === "/" ? "hidden" : ""
+              }`}
             >
-              Click me instead!
+              {window.location.pathname !== "/" ? (
+                <>
+                  <span className="mr-2">
+                    <HomeIcon className="h-5" />
+                  </span>
+                  <span>Homepage</span>
+                </>
+              ) : (
+                ""
+              )}
             </a>
           </div>
         </div>
@@ -487,7 +485,6 @@ export default function Header() {
                     dark:hover:text-gray-700 dark:focus:ring-2
                   "
                   >
-                    <span className="sr-only">Close menu</span>
                     <XIcon
                       className="h-6 w-6 text-gray-400 hover:text-gray-500 dark:text-gray-200"
                       aria-hidden="true"
@@ -523,13 +520,6 @@ export default function Header() {
             </div>
             <div className="py-6 px-5 space-y-6">
               <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-                <a
-                  onClick={undefined}
-                  href="https://github.com/theZeriax"
-                  className="text-base font-medium text-gray-900 hover:text-gray-700 dark:text-gray-200 dark:hover:text-gray-400"
-                >
-                  Docs?
-                </a>
                 {resources.map((item) => (
                   <a
                     key={item.name}

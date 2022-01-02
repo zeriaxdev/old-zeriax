@@ -6,7 +6,8 @@ module.exports = {
         "gradient-x": "gradient-x 10s ease-in-out infinite",
         "gradient-y": "gradient-y 10s ease-in-out infinite",
         "gradient-xy": "gradient-xy 10s ease-in-out infinite",
-        "3d-rotate": "3d-rotate 10s ease-in-out infinite",
+        "3d-rotate": "3d-rotate 3s ease-in-out infinite",
+        "3d-rotate-xy": "3d-rotate-xy 3s ease-in-out infinite",
         spin: "spin 1s ease-in-out infinite",
       },
       keyframes: {
@@ -63,6 +64,18 @@ module.exports = {
             "background-size": "200% 200%",
             "background-position": "right top",
             transform: "rotateX(180deg) rotateY(180deg)",
+          },
+          "100%": {
+            "background-size": "200% 200%",
+            "background-position": "left top",
+            transform: "rotateX(360deg) rotateY(360deg)",
+          },
+        },
+        "3d-rotate-xy": {
+          "0%": {
+            "background-size": "200% 200%",
+            "background-position": "left top",
+            transform: "rotateX(0deg) rotateY(0deg)",
           },
           "100%": {
             "background-size": "200% 200%",
