@@ -257,7 +257,7 @@ export default function Header() {
                                     ""
                                   )}
                                 </p>
-                                <p className="mt-1 text-sm text-gray-400">
+                                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
                                   {item.description}
                                 </p>
                               </div>
@@ -355,7 +355,7 @@ export default function Header() {
                                 <p className="text-base font-medium text-gray-900 dark:text-gray-200">
                                   {item.name}
                                 </p>
-                                <p className="mt-1 text-sm text-gray-500">
+                                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
                                   {item.description}
                                 </p>
                               </div>
@@ -472,8 +472,26 @@ export default function Header() {
           >
             <div className="pt-5 pb-6 px-5">
               <div className="flex items-center justify-between">
-                <div>
-                  <SiManjaro className="h-8 w-8 text-indigo-600 dark:text-gray-100" />
+                <div
+                  className="p-3"
+                  onMouseOver={() => {
+                    setName("i use manjaro btw");
+                    setSiteIcon(
+                      <SiManjaro
+                        className={`h-10 w-auto text-green-600 dark:text-white animate-3d-rotate-xy`}
+                      />
+                    );
+                  }}
+                  onMouseLeave={() => {
+                    setName("zeriax");
+                    setSiteIcon(
+                      <FaInternetExplorer
+                        className={`h-10 w-auto text-indigo-600 dark:text-white animate-3d-rotate`}
+                      />
+                    );
+                  }}
+                >
+                  {siteIcon}
                 </div>
                 <div className="-mr-2">
                   <Popover.Button
