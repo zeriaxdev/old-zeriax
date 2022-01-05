@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import PageNotFound from "./pages/PageNotFound";
 import PageFound from "./pages/PageFound";
 import Github from "./pages/Github";
-// import Rickroll from "./pages/Rickroll";
+import Coffee from "./pages/Coffee";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="github" element={<Github />} />
         <Route path="redirect" element={<Redirect />} />
-        {/* <Route path="rickroll-blocker" element={<Rickroll />} /> */}
+        <Route path="coffee" element={<Coffee />} />
         <Route path="404" element={<PageFound />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>

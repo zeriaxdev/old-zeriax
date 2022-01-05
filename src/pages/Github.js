@@ -1,5 +1,4 @@
 import Header from "../components/Header";
-// import { BiGitRepoForked } from "react-icons/bi";
 import { useEffect, useState } from "react";
 
 const fetch = (...args) =>
