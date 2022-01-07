@@ -29,6 +29,10 @@ h2 {
 }
 
 @layer components {
+  .link:any-link {
+    text-decoration: underline;
+  }
+
   .url {
     font-weight: 600;
   }
