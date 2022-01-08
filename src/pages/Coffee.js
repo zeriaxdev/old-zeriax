@@ -12,7 +12,7 @@ const Reddit = ({ urlToFetch: url }) => {
       .then((data) => {
         setData(data);
       });
-  });
+  }, [url]);
 
   return data ? (
     <div
@@ -136,6 +136,7 @@ const Coffee = () => {
     if (sort) {
       setSortBy(sort);
     }
+    console.info("here1", sort, subreddit);
   }, []);
 
   return (
