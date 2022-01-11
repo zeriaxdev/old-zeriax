@@ -1,1 +1,7 @@
 /*  /index.html  200
+
+# Subdomain forwards
+https://dev.zeriax.com https://github.com/thezeriax 301!
+https://redirect.zeriax.com https://youtube.com/watch?v=dQw4w9WgXcQ 301!
+https://twitter.zeriax.com https://twitter.com/theZeriax 301!
+https://www.zeriax.com https://www.zeriax.com/ 301!
