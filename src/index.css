@@ -29,6 +29,22 @@ h2 {
 }
 
 @layer components {
+  .min-w-xl {
+    min-width: 300px;
+  }
+
+  .min-w-537px {
+    min-width: 537px;
+  }
+
+  .min-w-2xl {
+    min-width: 42rem;
+  }
+
+  .min-h-xl {
+    min-height: 200px;
+  }
+
   .link:any-link {
     text-decoration: underline;
   }

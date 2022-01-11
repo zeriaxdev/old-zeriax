@@ -6,6 +6,7 @@ import PageNotFound from "./pages/PageNotFound";
 import PageFound from "./pages/PageFound";
 import Github from "./pages/Github";
 import Coffee from "./pages/Coffee";
+import Jokes from "./pages/Jokes";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="github" element={<Github />} />
         <Route path="redirect" element={<Redirect />} />
         <Route path="coffee" element={<Coffee />} />
+        <Route path="jokes" element={<Jokes />} />
         <Route path="404" element={<PageFound />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
