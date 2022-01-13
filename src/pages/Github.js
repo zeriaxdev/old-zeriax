@@ -2,6 +2,8 @@ import Header from "../components/Header";
 import { useEffect, useState } from "react";
 import Linkify from "linkify-react";
 import "animate.css";
+import Vivus from "vivus";
+import { FiGithub } from "react-icons/fi";
 
 const fetch = (...args) =>
   import("node-fetch").then(({ default: fetch }) => fetch(...args));
@@ -310,12 +312,28 @@ const FetchRepository = () => {
 };
 
 const Github = () => {
+  useEffect(() => {
+    new Vivus("github-logo", {
+      type: "delayed",
+      duration: 300,
+      start: "autostart",
+      dashGap: 10,
+      forceRender: false,
+      animTimingFunction: Vivus.EASE,
+      pathTimingFunction: Vivus.EASE,
+      delay: 100,
+    });
+  }, []);
+
   return (
     <>
       <Header />
       <div className="flex flex-col justify-center items-center">
         <div className="github bg-white dark:bg-zinc-800 dark:text-slate-50">
           <div className="container mx-auto px-4">
+            <div className="flex flex-col items-center justify-center mt-12">
+              <FiGithub className="w-32 h-32" id="github-logo" />
+            </div>
             <h1 className="text-center mt-10">GitHub Stats</h1>
             <div className="flex justify-between items-center py-3">
               <div className="flex items-center flex-col md:flex-row">
@@ -325,17 +343,15 @@ const Github = () => {
               </div>
             </div>
             <h2 className="text-center">Repositories</h2>
-            <div className="flex justify-between items-center py-3">
-              <div className="flex items-center flex-col md:flex-row">
-                <div className="m-5">
-                  <FetchRepository>
-                    {({ data, loading, error }) => {
-                      if (loading) return "Loading...";
-                      if (error) return `Error! ${error.message}`;
-                      return <FetchRepository data={data} />;
-                    }}
-                  </FetchRepository>
-                </div>
+            <div className="flex items-center flex-col">
+              <div className="m-5">
+                <FetchRepository>
+                  {({ data, loading, error }) => {
+                    if (loading) return "Loading...";
+                    if (error) return `Error! ${error.message}`;
+                    return <FetchRepository data={data} />;
+                  }}
+                </FetchRepository>
               </div>
             </div>
           </div>

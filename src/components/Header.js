@@ -18,6 +18,8 @@ import {
   FaInternetExplorer,
   FaDev,
   FaMedium,
+  FaCoffee,
+  FaLaughSquint,
 } from "react-icons/fa";
 import { SiManjaro } from "react-icons/si";
 
@@ -31,15 +33,27 @@ const random = Array.from(Array(8).keys())
 const solutions = [
   {
     name: "./github",
-    description: "GitHub page with all the statistics needed.",
+    description: "GitHub page with links to all my projects.",
     href: "/github",
     icon: FaGithub,
   },
   {
     name: "./redirect",
-    description: "A redirect to something SPECIAL.",
+    description: "A redirect to something SPECIAL!",
     href: "/redirect",
     icon: LinkIcon,
+  },
+  {
+    name: "./coffee",
+    description: "Reddit client? Doesn't even work properly.",
+    href: "/coffee",
+    icon: FaCoffee,
+  },
+  {
+    name: "./jokes",
+    description: "Hilarious jokes out there!",
+    href: "/jokes",
+    icon: FaLaughSquint,
   },
   {
     name: `./${random}`,
@@ -128,7 +142,7 @@ export default function Header() {
   );
 
   return (
-    <Popover className="relative bg-zinc-100 dark:bg-zinc-900 shadow-zinc-300/75 dark:shadow-zinc-900/50 shadow-lg">
+    <Popover className="relative w-full bg-zinc-100 dark:bg-zinc-900 shadow-zinc-300/75 dark:shadow-zinc-900/50 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div
           className="
