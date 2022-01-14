@@ -25,4 +25,4 @@ yarn-error.log*
 .vscode/
 .env
 
-src/Music.js
+src/pages/Music.js
