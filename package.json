@@ -1,9 +1,9 @@
 {
-  "name": "thezeriax.github.io",
+  "name": "zeriaxdev.github.io",
   "version": "0.1.0",
   "private": false,
-  "homepage": "https://thezeriax.github.io/",
-  "repository": "https://github.com/theZeriax/thezeriax.github.io",
+  "homepage": "https://zeriaxdev.github.io/",
+  "repository": "https://github.com/zeriaxdev/zeriaxdev.github.io",
   "dependencies": {
     "@headlessui/react": "^1.4.2",
     "@heroicons/react": "^1.0.5",

@@ -40,7 +40,7 @@ const Frontpage = () => {
                   </a>{" "}
                   and{" "}
                   <a
-                    href="https://github.com/theZeriax/UntitledChat/"
+                    href="https://github.com/zeriaxdev/UntitledChat/"
                     className="url dark:urldark"
                   >
                     UntitledChat
@@ -63,21 +63,21 @@ const Frontpage = () => {
                 <p>
                   You can find me on{" "}
                   <a
-                    href="https://twitter.com/theZeriax"
+                    href="https://twitter.com/zeriaxdev"
                     className="hover:underline"
                   >
                     <b>Twitter</b>
                   </a>
                   ,{" "}
                   <a
-                    href="https://github.com/theZeriax"
+                    href="https://github.com/zeriaxdev"
                     className="hover:underline"
                   >
                     <b>GitHub</b>
                   </a>
                   ,{" "}
                   <a
-                    href="https://www.dev.to/theZeriax/"
+                    href="https://www.dev.to/zeriaxdev/"
                     className="hover:underline"
                   >
                     <b>dev.to</b>

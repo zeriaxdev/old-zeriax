@@ -8,7 +8,7 @@ import { FiGithub } from "react-icons/fi";
 const fetch = (...args) =>
   import("node-fetch").then(({ default: fetch }) => fetch(...args));
 
-let username = "theZeriax";
+let username = "zeriaxdev";
 const url = `https://api.github.com/users/${username}`;
 
 const FetchUser = () => {

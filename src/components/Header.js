@@ -67,7 +67,7 @@ const callsToAction = [
   { name: "Watch a video", href: "/redirect", icon: PlayIcon },
   {
     name: "Email me",
-    href: "mailto://theZeriax@protonmail.com",
+    href: "mailto://zeriaxdev@protonmail.com",
     icon: MailIcon,
   },
 ];
@@ -76,21 +76,21 @@ const resources = [
     name: "GitHub",
     out: true,
     description: "Check out my projects on GitHub!",
-    href: "https://github.com/theZeriax/",
+    href: "https://github.com/zeriaxdev/",
     icon: FaGithub,
   },
   {
     name: "Twitter",
     out: true,
     description: "Connect with me on Twitter!",
-    href: "https://twitter.com/theZeriax",
+    href: "https://twitter.com/zeriaxdev",
     icon: FaTwitter,
   },
   {
     name: "dev.to",
     out: true,
     description: "Check out my blog on dev.to! There is none.",
-    href: "https://dev.to/theZeriax",
+    href: "https://dev.to/zeriaxdev",
     icon: FaDev,
   },
   {
@@ -119,12 +119,12 @@ const recentPosts = [
   {
     id: 2,
     name: "UntitledChat",
-    href: "https://github.com/theZeriax/UntitledChat",
+    href: "https://github.com/zeriaxdev/UntitledChat",
   },
   {
     id: 3,
     name: "This Website",
-    href: "https://github.com/theZeriax/theZeriax.github.io",
+    href: "https://github.com/zeriaxdev/zeriaxdev.github.io",
   },
 ];
 
@@ -136,7 +136,7 @@ export default function Header() {
   const [name, setName] = useState("zeriax");
   const [siteIcon, setSiteIcon] = useState(
     <FaInternetExplorer
-      href="https://github.com/theZeriax"
+      href="https://github.com/zeriaxdev"
       className={`h-10 w-auto text-indigo-600 dark:text-white animate-3d-rotate`}
     />
   );
@@ -425,7 +425,7 @@ export default function Header() {
                           </div>
                           <div className="mt-5 text-sm">
                             <a
-                              href="https://github.com/theZeriax"
+                              href="https://github.com/zeriaxdev"
                               className="font-medium text-indigo-600 hover:text-indigo-500"
                             >
                               View all repos{" "}
@@ -566,7 +566,7 @@ export default function Header() {
               <div>
                 <a
                   onClick={undefined}
-                  href="https://github.com/theZeriax"
+                  href="https://github.com/zeriaxdev"
                   className="
                   w-full flex items-center justify-center px-4 py-2 border border-transparent 
                   rounded-md bg-indigo-600animate-gradient-xy
@@ -581,7 +581,7 @@ export default function Header() {
                   Pages
                   <a
                     onClick={undefined}
-                    href="https://github.com/theZeriax"
+                    href="https://github.com/zeriaxdev"
                     className="text-indigo-600 hover:text-indigo-500"
                   >
                     I'm some <b>text</b>!
