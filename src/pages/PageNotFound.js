@@ -4,12 +4,6 @@ import { FaCoffee } from "react-icons/fa";
 const PageNotFound = () => {
   useEffect(() => {
     document.title = "Page not found - 404";
-
-    if (window.location.hostname !== "zeriax.com/twitter") {
-      window.location.href = "https://twitter.com/zeriaxdev";
-    } else if (window.location.hostname !== "zeriax.com/dev") {
-      window.location.href = "https://github.com/zeriaxdev";
-    }
   });
 
   return (
