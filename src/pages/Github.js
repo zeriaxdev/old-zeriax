@@ -4,7 +4,6 @@ import Linkify from "linkify-react";
 import "animate.css";
 import Vivus from "vivus";
 import { FiGithub } from "react-icons/fi";
-import { FaWaveSquare } from "react-icons/fa";
 
 const fetch = (...args) =>
   import("node-fetch").then(({ default: fetch }) => fetch(...args));
