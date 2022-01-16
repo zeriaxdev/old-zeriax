@@ -60,4 +60,35 @@ h2 {
   .urldark {
     color: #eee;
   }
+
+  .typewriter::after {
+    font-family: monospace;
+    content: "|";
+    animation: blink 1.5s infinite;
+  }
+
+  .typewriter-terminal::after {
+    content: "▊";
+    animation: blink 1.5s infinite;
+  }
+
+  .rq::after {
+    font-family: monospace;
+    content: " *";
+    color: rgb(239 68 68);
+  }
+
+  @keyframes blink {
+    0% {
+      opacity: 0%;
+    }
+
+    50% {
+      opacity: 100%;
+    }
+
+    100% {
+      opacity: 0%;
+    }
+  }
 }

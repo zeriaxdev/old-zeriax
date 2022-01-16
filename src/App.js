@@ -19,7 +19,7 @@ function App() {
         <Route path="redirect" element={<Redirect />} />
         <Route path="coffee" element={<Coffee />} />
         <Route path="jokes" element={<Jokes />} />
-        {/* <Route path="music" element={<Music />} /> */}
+        <Route path="music" element={<Music />} />
         <Route path="404" element={<PageFound />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>

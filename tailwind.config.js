@@ -8,7 +8,8 @@ module.exports = {
         "gradient-xy": "gradient-xy 10s ease-in-out infinite",
         "3d-rotate": "3d-rotate 3s ease-in-out infinite",
         "3d-rotate-xy": "3d-rotate-xy 3s ease-in-out infinite",
-        spin: "spin 1s ease-in-out infinite",
+        spin: "spin 1s linear infinite",
+        blink: "blink 1s linear infinite",
       },
       keyframes: {
         "gradient-y": {
@@ -93,6 +94,14 @@ module.exports = {
             "background-size": "200% 200%",
             "background-position": "left top",
             transform: "rotate(360deg)",
+          },
+        },
+        blink: {
+          "0%": {
+            opaicty: "0",
+          },
+          "100%": {
+            opacity: "1",
           },
         },
       },

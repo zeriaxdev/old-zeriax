@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { FaArrowUp, FaRedditAlien } from "react-icons/fa";
+import { FaArrowUp, FaRedditAlien, FaAward, FaSpinner } from "react-icons/fa";
+import TypeWriter from "../components/TypeWriter";
 
 const Reddit = () => {
   let [data, setData] = useState(null);
@@ -29,6 +30,8 @@ const Reddit = () => {
       .then((data) => {
         setData(data);
       });
+
+    document.title = "Coffee: Online Reddit client";
   }, [url, sub, sortBy]);
 
   return data ? (
@@ -87,17 +90,35 @@ const Reddit = () => {
                 >
                   <b>{post.data.title}</b>
                 </a>
-                <div className="mt-2 flex items-center text-sm leading-5 text-gray-500 dark:text-gray-400">
-                  {post.data.selftext.length > 400
-                    ? post.data.selftext.substring(0, 400) + " ..."
-                    : post.data.selftext}
-                </div>
-                <div className="mt-2 flex items-center text-sm leading-5 text-gray-500 dark:text-gray-400">
-                  <FaArrowUp className="mr-1" />
-                  <span>{post.data.score}</span>
-                </div>
+                {post.data.selftext ? (
+                  <div className="mt-2 flex items-center text-sm leading-5 text-gray-500 dark:text-gray-400">
+                    {post.data.selftext.length > 400
+                      ? post.data.selftext.substring(0, 400) + " ..."
+                      : post.data.selftext}
+                  </div>
+                ) : (
+                  ""
+                )}
+
+                {post.data.total_awards_received > 0 ? (
+                  <div className="mt-2 flex items-center text-sm leading-5 text-gray-500 dark:text-gray-400">
+                    <FaAward className="mr-1" />
+                    <span className="mr-2">
+                      {post.data.total_awards_received}
+                    </span>
+                    <FaArrowUp className="mr-1" />
+                    <span>{post.data.score}</span>
+                  </div>
+                ) : (
+                  ""
+                )}
                 <div className="text-sm text-gray-500 dark:text-gray-300">
-                  <span>{post.data.num_comments} comments</span>
+                  <a
+                    href={`https://reddit.com${post.data.permalink}comments`}
+                    className="hover:underline"
+                  >
+                    {post.data.num_comments} comments
+                  </a>
                 </div>
                 <div className="flex justify-center items-center">
                   {post.data.thumbnail ? (
@@ -143,11 +164,159 @@ const Reddit = () => {
   );
 };
 
+const Login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const [inputDisabled, setInputDisabled] = useState(false);
+
+  const handleSubmit = () => {
+    setLoading(true);
+    fetch("https://www.reddit.com/api/v1/access_token", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: `grant_type=password&username=${username}&password=${password}`,
+      mode: "no-cors",
+      redirect: "follow",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.error) {
+          setError(data.error);
+          setLoading(false);
+        } else {
+          console.log(
+            `Logged in as ${data.access_token.slice(
+              0,
+              5
+            )}...${data.access_token.slice(-5)}`
+          );
+          localStorage.setItem("token", data.access_token);
+          localStorage.setItem("username", username);
+          localStorage.setItem("password", password);
+          setError("");
+          setLoading(false);
+
+          // window.location.reload();
+        }
+      });
+  };
+
+  return (
+    <div className="flex flex-col items-center justify-center h-full">
+      <div className="w-full max-w-sm">
+        <form
+          className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+          onSubmit={() => {
+            handleSubmit();
+            setInputDisabled(true);
+          }}
+        >
+          <div className="mb-4">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2 rq"
+              htmlFor="username"
+            >
+              Username
+            </label>
+            <input
+              className={
+                "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " +
+                (username.length < 3
+                  ? " invalid:border-red-500 invalid:shadow-red-300"
+                  : username.length >= 20
+                  ? "border-green-500 shadow-green-300"
+                  : "")
+              }
+              id="username"
+              type="text"
+              placeholder="yourUsername_"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              minLength={3}
+              maxLength={20}
+              autoComplete="off"
+              disabled={inputDisabled}
+            />
+          </div>
+          <div className="mb-6">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2 rq"
+              htmlFor="password"
+            >
+              Password
+            </label>
+            <input
+              className={
+                "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" +
+                (password.length < 8
+                  ? " invalid:border-red-500 invalid:shadow-red-300"
+                  : "")
+              }
+              id="password"
+              type="password"
+              placeholder="********"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              minLength={8}
+              autoComplete="off"
+              disabled={inputDisabled}
+            />
+          </div>
+          <div className="flex flex-col items-center justify-between">
+            <button
+              className={
+                "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" +
+                (username.length < 3 ||
+                password.length < 3 ||
+                loading ||
+                username.length > 20
+                  ? " opacity-70 cursor-not-allowed hover:bg-blue-500"
+                  : "")
+              }
+              disabled={username.length < 3 || password.length < 3 || loading}
+              type="submit"
+              onSubmit={handleSubmit}
+            >
+              {loading ? (
+                <div className="flex items-center justify-center">
+                  <div className="w-4 h-4 mr-2">
+                    <FaSpinner
+                      className="w-4 h-4 animate-spin"
+                      variant="primary"
+                    />
+                  </div>
+                  <span>
+                    <TypeWriter content="Logging in..." speed={70} />
+                  </span>
+                </div>
+              ) : (
+                "Login"
+              )}
+            </button>
+          </div>
+          {error ? (
+            <div className="text-red-500 text-sm font-bold mb-2">{error}</div>
+          ) : (
+            ""
+          )}
+        </form>
+      </div>
+    </div>
+  );
+};
+
 const Coffee = () => {
   return (
     <div>
       <div className="mx-2 mb-2">
-        <Reddit />
+        <div className="flex flex-col items-center justify-center h-full">
+          {localStorage.getItem("token") ? <Reddit /> : <Login />}
+        </div>
       </div>
     </div>
   );

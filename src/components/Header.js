@@ -40,7 +40,7 @@ const solutions = [
   {
     name: "./redirect",
     description: "A redirect to something SPECIAL!",
-    href: "/redirect",
+    href: "https://www.youtube.com/watch?v=QH2-TGUlwu4",
     icon: LinkIcon,
   },
   {

@@ -1,4 +1,5 @@
 import "../App.css";
+import TypeWriter from "./TypeWriter";
 
 const Frontpage = () => {
   return (
@@ -8,7 +9,9 @@ const Frontpage = () => {
           <div className="flex justify-between items-center py-3">
             <article className="flex items-center flex-col md:flex-row my-5">
               <div>
-                <h1 id="about-me">About me</h1>
+                <h1 id="about-me">
+                  <TypeWriter content="About me" speed={100} />
+                </h1>
                 <p>
                   Hello there! 👋 I'm zeriax, a young developer from Helsinki,
                   Finland. I like imagining things and try my best to improve my
