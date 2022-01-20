@@ -7,7 +7,7 @@ const Music = () => {
     } else if (navigator.userAgent.indexOf("Win") > -1) {
       document.title = "🪟 Music";
     } else if (navigator.userAgent.indexOf("Mac") > -1) {
-      document.title = "🍵 Music";
+      document.title = "🍎 Music";
     } else if (navigator.userAgent.indexOf("Android") > -1) {
       document.title = "🤖 Music";
     } else if (navigator.userAgent.indexOf("iPhone") > -1) {

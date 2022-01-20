@@ -143,6 +143,15 @@ export default function Header() {
 
   return (
     <Popover className="relative w-full bg-zinc-100 dark:bg-zinc-900 shadow-zinc-300/75 dark:shadow-zinc-900/50 shadow-lg">
+      <a
+        href="/redirect"
+        className="
+        text-gray-900 dark:text-gray-200 absolute p-2 dark:bg-zinc-800/60 rounded-b-lg
+        left-20 -translate-y-full focus:translate-y-0 transition-all bg-gray-300
+        "
+      >
+        Click for a surprise!
+      </a>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div
           className="
