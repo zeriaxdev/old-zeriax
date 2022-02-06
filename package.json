@@ -22,7 +22,7 @@
     "linkify-react": "^3.0.4",
     "linkifyjs": "^3.0.5",
     "node-fetch": "^2.6.6",
-    "node-forge": "^1.2.0",
+    "node-forge": "^1.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-easy-emoji": "^1.6.1",
