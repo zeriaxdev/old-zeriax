@@ -21,7 +21,7 @@ import {
   FaCoffee,
   FaLaughSquint,
 } from "react-icons/fa";
-import { SiManjaro } from "react-icons/si";
+import { SiArchlinux } from "react-icons/si";
 
 import { GoLinkExternal } from "react-icons/go";
 
@@ -163,9 +163,9 @@ export default function Header() {
             <p
               className="cursor-progress"
               onMouseOver={() => {
-                setName("i use manjaro btw");
+                setName("i use arch btw");
                 setSiteIcon(
-                  <SiManjaro
+                  <SiArchlinux
                     className={`h-10 w-auto text-green-600 dark:text-white animate-3d-rotate-xy`}
                   />
                 );
@@ -498,9 +498,9 @@ export default function Header() {
                 <div
                   className="p-3"
                   onMouseOver={() => {
-                    setName("i use manjaro btw");
+                    setName("i use arch btw");
                     setSiteIcon(
-                      <SiManjaro
+                      <SiArchlinux
                         className={`h-10 w-auto text-green-600 dark:text-white animate-3d-rotate-xy`}
                       />
                     );
