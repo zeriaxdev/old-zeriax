@@ -35,7 +35,7 @@
     "react-test-renderer": "^17.0.2",
     "request": "^2.88.2",
     "sass": "^1.45.2",
-    "three": "^0.136.0",
+    "three": "^0.141.0",
     "typed.js": "^2.0.12",
     "vivus": "^0.4.6",
     "web-vitals": "^2.1.2"
